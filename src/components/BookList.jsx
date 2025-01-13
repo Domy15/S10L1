@@ -13,6 +13,18 @@ class BookList extends Component {
     this.setState({ asin: asinBook });
   };
 
+  showCard = (b) => {
+    if (b.asin == this.state.asin) {
+      return (<Col xs={4} key={b.asin}>
+      <SingleBook book={b} changeAsin={this.changeAsin} selected={true}/>
+    </Col>)
+    } else {
+      return (<Col xs={4} key={b.asin}>
+      <SingleBook book={b} changeAsin={this.changeAsin} selected={false}/>
+    </Col>)
+    }
+  }
+
   render() {
     return (
       <>
@@ -35,15 +47,12 @@ class BookList extends Component {
             .filter((b) =>
               b.title.toLowerCase().includes(this.state.searchQuery)
             ).map((b) => (
-              <Col xs={4} key={b.asin}>
-                <SingleBook book={b} changeAsin={this.changeAsin} />
-              </Col>
+              this.showCard(b)
             ))}
             </Row>
             </Col>
             <Col xs={6}>
             {this.state.asin && <CommentArea asin={this.state.asin}/>}
-            {console.log("ciao") }
             </Col>
         </Row>
       </>
