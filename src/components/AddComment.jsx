@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 const TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjMDAxY2QyMjA3MTAwMTVkZTJmNTUiLCJpYXQiOjE3MzY3NzU1ODEsImV4cCI6MTczNzk4NTE4MX0.y9tX550zICTKcNyFIEQ0DiT6Y8Otlu3j_QG8v_56hRY";
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzVjMDAxY2QyMjA3MTAwMTVkZTJmNTUiLCJpYXQiOjE3MzY3NzU1ODEsImV4cCI6MTczNzk4NTE4MX0.y9tX550zICTKcNyFIEQ0DiT6Y8Otlu3j_QG8v_56hRY";
 
 function AddComment(props) {
   let comments = {
@@ -19,10 +19,10 @@ function AddComment(props) {
         "https://striveschool-api.herokuapp.com/api/comments",
         {
           method: "POST",
-          body: JSON.stringify(comment.comment),
+          body: JSON.stringify(comment),
           headers: {
             "Content-type": "application/json",
-            Authorization: `Bearer ${TOKEN}`,
+            Authorization: TOKEN,
           },
         }
       );
