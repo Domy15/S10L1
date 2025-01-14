@@ -14,6 +14,8 @@ function AddComment(props) {
 
   const sendComment = async (e) => {
     e.preventDefault();
+    console.log(comment);
+    
     try {
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments",
@@ -29,9 +31,7 @@ function AddComment(props) {
       if (response.ok) {
         alert("Recensione inviata!");
         setComment({
-          comment: "",
-          rate: 1,
-          elementId: props.asin,
+          comments
         });
       } else {
         throw new Error("Qualcosa è andato storto");
@@ -65,10 +65,8 @@ function AddComment(props) {
             value={comment.rate}
             onChange={(e) =>
               setComment({
-                comment: {
                   ...comment,
-                  rate: e.target.value,
-                },
+                  rate: parseInt(e.target.value),
               })
             }
           >
