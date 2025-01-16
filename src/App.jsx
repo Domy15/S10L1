@@ -6,7 +6,6 @@ import Welcome from './components/Welcome'
 // import AllTheBooks from './components/AllTheBooks'
 import { Container } from 'react-bootstrap'
 import BookList from './components/BookList'
-
 import fantasy from './data/fantasy.json'
 
 function App() {

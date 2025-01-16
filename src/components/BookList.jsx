@@ -17,11 +17,11 @@ function BookList (props) {
 
   const showCard = (b) => {
     if (b.asin == state.asin) {
-      return (<Col xs={4} key={b.asin}>
+      return (<Col xs={4} key={b.asin} data-testid="book-card">
       <SingleBook book={b} changeAsin={changeAsin} selected={true}/>
     </Col>)
     } else {
-      return (<Col xs={4} key={b.asin}>
+      return (<Col xs={4} key={b.asin} data-testid="book-card">
       <SingleBook book={b} changeAsin={changeAsin} selected={false}/>
     </Col>)
     }
@@ -53,7 +53,7 @@ function BookList (props) {
             </Row>
             </Col>
             <Col xs={6}>
-            {state.asin && <CommentArea asin={state.asin}/>}
+            <CommentArea asin={state.asin} data-testid="comment-area" />
             </Col>
         </Row>
       </>
